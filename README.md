@@ -1,6 +1,8 @@
 # artixsetup
 Setup Artix from new install using https://github.com/feribsd/artix-install
+
 Very much a work in progress - lots of the scripts will not work right now
+
 Readme is a to do list
 - Set up basic packages (vim, ranger, fastfetch)
 - Set up doas, ufw, ssh
