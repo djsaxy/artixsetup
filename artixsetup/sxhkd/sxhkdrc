@@ -1,0 +1,101 @@
+# === App Binds ===
+
+# Terminal 
+alt + Return
+    st
+
+# App Launcher
+alt + space
+    rofi -show drun -show-icons
+
+# Browser
+alt + b
+    helium-browser
+
+# Incognito Browser
+alt + shift + b
+    helium-browser --incognito
+
+# File Manager
+alt + e
+    nautilus
+
+
+# === Window Binds ===
+
+# Quit current window
+alt + q
+    bspc node -c
+
+# Switch window focus
+alt + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Interchange windows
+alt + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+
+# Toggle floating
+alt + shift + f
+    bspc node -t ~floating
+
+# Toggle fullscreen
+alt + f
+    bspc node -t ~fullscreen
+
+
+# === Media & Brightness ===
+
+# Volume Up
+XF86AudioRaiseVolume
+    amixer set Master 5%+
+
+# Volume Down
+XF86AudioLowerVolume
+    amixer set Master 5%-
+
+# Mute/Unmute Volume
+XF86AudioMute
+    amixer set Master toggle
+
+# Increase Screen Brightness
+XF86MonBrightnessUp
+    brightnessctl set +5%
+
+# Decrease Screen Brightness
+XF86MonBrightnessDown
+    brightnessctl set 5%-
+
+
+# === Workspace binds ===
+
+# Switch between workspaces
+alt + {1-9,0}
+    bspc desktop -f {1-9,10}
+
+# Shift windows to different workspaces
+alt + shift + {1-9,0}
+    bspc node -d {1-9,10}
+
+
+# === Session Binds ===
+
+# Screen lock & Suspend
+alt + s
+    slock loginctl suspend -i
+
+# Screen lock without Suspend
+alt + shift + s
+    slock
+
+# Reload sxhkd
+alt + Escape
+    pkill -USR1 -x sxhkd
+
+# Reload bspwm
+alt + shift + r
+    bspc wm -r
+
+# Quit bspwm
+alt + shift + q
+    bspc quit

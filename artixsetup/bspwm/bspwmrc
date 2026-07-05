@@ -1,0 +1,44 @@
+#! /bin/sh
+
+redshift -l 33.74877:-85:812486 &
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+case $HOSTNAME in
+	(macbook) if xrandr | grep "DP-1 disconnected"; then 
+			xrandr --output eDP-1 --mode 1920x1200
+		  else
+			xrandr --output eDP-1 --off --output DP-1 --primary --mode 1920x1080
+		  fi;;
+	(dell) if xrandr | grep "DP-1 disconnected"; then 
+			xrandr --output eDP-1 --mode 1920x1080
+		  else
+			xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080
+		  fi;;
+	(CCS119450) if xrandr | grep "HDMI-1 disconnected"; then 
+			xrandr --output eDP-1 --mode auto
+		  else
+			xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080
+		  fi;;
+esac
+	  	  
+bspc monitor -d 1 2 3 4
+
+bspc config border_width              2
+bspc config window_gap                0
+bspc config split_ratio               0.5
+bspc config focus_follows_pointer     true
+bspc config single_monocle	      true
+bspc config borderless_monocle        true
+bspc config gapless_monocle	      true
+
+# bspc config focused_border_color    "jjkdjfk"
+# bspc config normal_border_color     "jkjlkj"
+# bspc config active_border_color     "jkfjdl"
+# bspc config presel_feedback_color   "jfdksl"
+
+# bspc rule -a 'Helium' desktop='^2' follow=on
+
+# feh --bg-fill ~/archsetup/arch-linux-greybg-bluearch.jpg
+xsetroot -cursor_name left_ptr &
+xset r rate 200 50
