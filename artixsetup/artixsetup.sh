@@ -26,6 +26,6 @@ chmod +x ~/artixsetup/ssh.sh
 # Prompt for windowmanager.sh
 read -p "Install Window Manager? <y/N>" prompt
     if [[ $prompt =~ [yY]* ]] then
-	chmod +x ~/artixsetup/bspwm.sh
-	~/artixsetup/bspwm.sh
+	chmod +x ~/artixsetup/windowmanager.sh
+	~/artixsetup/windowmanager.sh
     fi
