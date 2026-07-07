@@ -2,11 +2,8 @@
 
 # Set up Artix Linux for use with bspwm
 
-# Update system
-doas pacman -Syu
-
 # Install pacman packages
-doas pacman -S --needed --noconfirm git base-devel
+doas pacman -S --needed --noconfirm base-devel
 # doas pacman -S --needed --noconfirm  stow github-cli 
 
 # Ask if remote desktop is needed
