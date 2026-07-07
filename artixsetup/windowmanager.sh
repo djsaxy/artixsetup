@@ -30,9 +30,9 @@ read -p "Install Google Chrome? <y/N>" prompt
     fi
 
 # Make scripts executable
-# chmod +x ./artixsetup/dwm.sh
-chmod +x ./artixsetup/bspwm.sh
-chmod +x ./artixsetup/xinitrc.sh
+# chmod +x ~/artixsetup/dwm.sh
+chmod +x ~/artixsetup/bspwm.sh
+chmod +x ~/artixsetup/xinitrc.sh
 
 # Install Window Manager
 # ~/artixsetup/dwm.sh
