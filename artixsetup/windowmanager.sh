@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# Set up Artix Linux  for use with bspwm
+# Set up Artix Linux for use with bspwm
 
 # Update system
 doas pacman -Syu
 
 # Install pacman packages
-doas pacman -S --needed git base-devel --noconfirm
-# doas pacman -S --needed stow github-cli remmina freerdp
+doas pacman -S --needed --noconfirm git base-devel
+# doas pacman -S --needed --noconfirm  stow github-cli 
+
+# Ask if remote desktop is needed
+read -p "Remote desktop needed? <y/N>" prompt
+    if [[ $prompt =~ [yY]* ]] then
+	doas pacman -S --needed --noconfirm remmina freerdp
+    fi
 
 # Install yay after changing to doas from sudo
 doas sed -i 's/PACMAN_AUTH=()/PACMAN_AUTH=(doas)/' /etc/makepkg.conf
@@ -16,10 +22,15 @@ doas pacman -S --needed go
 git clone https://aur.archlinux.org/yay.git ~/.config/yay
 cd ~/.config/yay
 makepkg -si
-cd ~
+cd
 
-# Install AUR packages
-yay -S helium-browser-bin --noconfirm
+# Install browser(s)
+yay -S --noconfirm helium-browser-bin
+read -p "Install Google Chrome? <y/N>" prompt
+    if [[ $prompt =~ [yY]* ]] then
+	yay -S --noconfirm google-chrome
+	echo "\n\n# Chrome\nsuper + shift\n    google-chrome" >> ~/artixsetup/sxhkd/sxhkdrc
+    fi
 
 # Make scripts executable
 # chmod +x ./artixsetup/dwm.sh
@@ -27,8 +38,8 @@ chmod +x ./artixsetup/bspwm.sh
 chmod +x ./artixsetup/xinitrc.sh
 
 # Install Window Manager
-# ./artixsetup/dwm.sh
-./artixsetup/bspwm.sh
+# ~/artixsetup/dwm.sh
+~/artixsetup/bspwm.sh
 
 # Write .xintirc file
-./artixsetup/xinitrc.sh
+~/artixsetup/xinitrc.sh

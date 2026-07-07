@@ -10,26 +10,23 @@ doas dinitctl enable turnstiled
 dinitctl enable pipewire
 dinitctl enable pipewire-pulse
 dinitctl enable wireplumber
+read -p "Check for errors, then press any key to continue."
 
-# Install bspwm, sxhkd, wezterm
+# Install window manager and packages
 doas pacman -S --needed --noconfirm bspwm sxhkd rofi nautilus
 
-# Configure
-# cd
-# mkdir ~/.config/bspwm
-# mkdir ~/.config/sxhkd
+# Move dots
+mkdir -p ~/.config
+mv ~/artixsetup/bspwm ~/.config
+mv ~/artixsetup/sxhkd ~/.config
+mv ~/artixsetup/suckless ~/.config
 
-# Configure and/or clone ~/.config/bspwm/bspwmrc
-
-# Make bspwmcr executable
+# Make bspwmrc executable
 chmod +x ~/.config/bspwm/bspwmrc
 
-# Configure and/or clone ~/.config/sxhkd/sxhkdrc
-
-# Clone and Install slock/st
-# mkdir -p ~/.config/slock
-# git clone https://github.com/djsaxy/dots/tree/main/.config/suckless/slock ~/.config/slock
+# Install slock and st
 cd ~/.config/suckless/slock
 doas make clean install
 cd ~/.config/suckless/st
 doas make clean install
+cd
