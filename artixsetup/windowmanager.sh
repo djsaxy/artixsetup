@@ -15,7 +15,7 @@ read -p "Remote desktop needed? <y/N>" prompt
 # Install yay after changing to doas from sudo
 doas sed -i 's/PACMAN_AUTH=()/PACMAN_AUTH=(doas)/' /etc/makepkg.conf
 echo "alias yay='yay --sudo doas --sudoflags -- --save'" >> ~/.bashrc
-doas pacman -S --needed go
+doas pacman -S --needed --noconfirm go
 git clone https://aur.archlinux.org/yay.git ~/.config/yay
 cd ~/.config/yay
 makepkg -si
