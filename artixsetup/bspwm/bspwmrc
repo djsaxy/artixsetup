@@ -15,11 +15,16 @@ case $HOSTNAME in
 		  else
 			xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080
 		  fi;;
-	(CCS119450) if xrandr | grep "HDMI-1 disconnected"; then 
+	(worklaptop) if xrandr | grep "HDMI-1 disconnected"; then 
 			xrandr --output eDP-1 --mode auto
 		  else
 			xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080
 		  fi;;
+	(tv) if xrandr | grep "HDMI-2 disconnected"; then
+			xrandr --output eDP-1 --mode auto
+		 else
+			xrandr --output eDP-1 --off --output HDMI-2 --primary --mode 1920x1080
+		 fi;;
 esac
 	  	  
 bspc monitor -d 1 2 3 4
