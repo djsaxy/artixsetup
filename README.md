@@ -1,7 +1,7 @@
 # artixsetup
 Setup Artix from new install using https://github.com/feribsd/artix-install
 
-Assumes dinit as the init system
+Assumes dinit as the init system and doas for privilege elevation
 
 Very much a work in progress - lots of the scripts will not work right now
 
