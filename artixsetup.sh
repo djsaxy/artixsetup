@@ -1,11 +1,12 @@
 #!/bin/sh
 
-# Add basic packages
-doas pacman -Syu  --needed --noconfirm git vim ranger fastfetch
-echo "fastfetch" >> ~/.bashrc
+# Files will need to be either cloned from git or moved onto the machine some other way
+# doas pacman -Syu --needed --noconfirm git
+# git clone https://github.com/djsaxy/artixsetup.git ~/
 
-# Pull artixsetup folder from Github
-git clone https://github.com/djsaxy/artixsetup.git ~/
+# Add basic packages
+doas pacman -Syu  --needed --noconfirm vim ranger fastfetch
+echo "fastfetch" >> ~/.bashrc
 
 # Setup doas
 chmod +x ~/artixsetup/doassetup.sh
