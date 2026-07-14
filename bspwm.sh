@@ -4,7 +4,7 @@
 doas pacman -Syu
 
 # Install dependencies
-doas pacman -S --needed --noconfirm xorg-server xorg-xinit xorg-xinput xorg-xrandr xorg-xsetroot xorg-xset xorg-xprop xorg-xdpyinfo redshift brightnessctl pipewire pipewire-dinit pipewire-pulse pipewire-pulse-dinit wireplumber wireplumber-dinit pipewire-alsa pipewire-jack turnstile turnstile-dinit alsa-utils alsa-firmware
+doas pacman -S --needed xorg-server xorg-xinit xorg-xinput xorg-xrandr xorg-xsetroot xorg-xset xorg-xprop xorg-xdpyinfo redshift brightnessctl pipewire-dinit pipewire-pulse-dinit wireplumber-dinit pipewire-alsa pipewire-jack turnstile turnstile-dinit alsa-utils alsa-firmware
 
 doas dinitctl enable turnstiled
 dinitctl enable pipewire
