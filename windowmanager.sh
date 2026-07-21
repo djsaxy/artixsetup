@@ -24,7 +24,7 @@ cd
 # Install browser(s)
 yay -S --noconfirm helium-browser-bin
 read -p "Install Google Chrome? <y/N>" prompt
-    if [[ $prompt =~ [yY]* ]] then
+    if [[ $prompt =~ [yY]* ]]; then
 	yay -S --noconfirm google-chrome
 	echo "\n\n# Chrome\nsuper + shift\n    google-chrome" >> ~/artixsetup/sxhkd/sxhkdrc
     fi
