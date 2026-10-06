@@ -1,46 +1,46 @@
 # === App Binds ===
 
 # Terminal 
-alt + Return
+super + Return
     st
 
 # App Launcher
-alt + space
+super + space
     rofi -show drun -show-icons
 
 # Browser
-alt + b
+super + b
     helium-browser
 
 # Incognito Browser
-alt + shift + b
+super + shift + b
     helium-browser --incognito
 
 # File Manager
-alt + e
+super + e
     nautilus
 
 
 # === Window Binds ===
 
 # Quit current window
-alt + q
+super + q
     bspc node -c
 
 # Switch window focus
-alt + {h,j,k,l}
+super + {h,j,k,l}
     bspc node -f {west,south,north,east}
 
 # Interchange windows
-alt + shift + {h,j,k,l}
+super + shift + {h,j,k,l}
     bspc node -s {west,south,north,east}
 
 # Toggle floating
-alt + shift + f
+super + shift + f
     bspc node -t ~floating
 
 # Toggle fullscreen
-alt + f
+super + f
     bspc node -t ~fullscreen
 
 
@@ -70,32 +70,32 @@ XF86MonBrightnessDown
 # === Workspace binds ===
 
 # Switch between workspaces
-alt + {1-9,0}
+super + {1-9,0}
     bspc desktop -f {1-9,10}
 
 # Shift windows to different workspaces
-alt + shift + {1-9,0}
+super + shift + {1-9,0}
     bspc node -d {1-9,10}
 
 
 # === Session Binds ===
 
 # Screen lock & Suspend
-alt + s
+super + s
     slock loginctl suspend -i
 
 # Screen lock without Suspend
-alt + shift + s
+super + shift + s
     slock
 
 # Reload sxhkd
-alt + Escape
+super + Escape
     pkill -USR1 -x sxhkd
 
 # Reload bspwm
-alt + shift + r
+super + shift + r
     bspc wm -r
 
 # Quit bspwm
-alt + shift + q
+super + shift + q
     bspc quit
