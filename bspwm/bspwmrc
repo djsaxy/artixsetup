@@ -5,28 +5,18 @@ redshift -l 33.74877:-85:812486 &
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 case $HOSTNAME in
-	(macbook) if xrandr | grep "DP-1 disconnected"; then 
+	(macbook) if xrandr | grep "DP-1 disconnected"; then
 			xrandr --output eDP-1 --mode 1920x1200
 		  else
 			xrandr --output eDP-1 --off --output DP-1 --primary --mode 1920x1080
 		  fi;;
-	(dell) if xrandr | grep "DP-1 disconnected"; then 
+	(dell) if xrandr | grep "DP-1 disconnected"; then
 			xrandr --output eDP-1 --mode 1920x1080
 		  else
 			xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080
 		  fi;;
-	(worklaptop) if xrandr | grep "HDMI-1 disconnected"; then 
-			xrandr --output eDP-1 --mode auto
-		  else
-			xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080
-		  fi;;
-	(tv) if xrandr | grep "HDMI-2 disconnected"; then
-			xrandr --output eDP-1 --mode auto
-		 else
-			xrandr --output eDP-1 --off --output HDMI-2 --primary --mode 1920x1080
-		 fi;;
 esac
-	  	  
+
 bspc monitor -d 1 2 3 4
 
 bspc config border_width              2
